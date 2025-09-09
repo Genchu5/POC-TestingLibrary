@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px); /* 3 columnas fijas */
+  grid-template-rows: repeat(3, 100px);    /* 3 filas fijas */
+  gap: 0;
+}
+.winner {
+  font-size: 30px;
+  padding: 5px;
+  /* Define el degradado con el color inicial al final para un loop perfecto */
+  background-image: linear-gradient(
+    to right,
+    darkgoldenrod,
+    darkmagenta,
+    darkgoldenrod
+  );
+  background-size: 200% 100%;
+  animation: slide 1.5s linear infinite;
+}
+
+@keyframes slide {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+.nextPlayer{
+  padding: 5px;
+  font-size: 30px;
+}

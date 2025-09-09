@@ -1,12 +1,16 @@
-import "./App.css";
-import Counter from "./pages/counter";
+import Counter from "./pages/counter"
+import TaTeTiPage from "./pages/TaTeTiPage"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-function App() {
+const router = createBrowserRouter([
+      {path: '/', element: <TaTeTiPage/>},
+      {path: '/counter', element: <Counter initialCount={0} />},
+      {path: '/tateti', element: <TaTeTiPage/>},
+    ]
+);
+
+export default function App() {
   return (
-    <div className="App">
-      <Counter initialCount={0} />
-    </div>
+    <RouterProvider router={router} />
   );
 }
-
-export default App;
