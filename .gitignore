@@ -1,31 +1,44 @@
-# coverage reports
+# ─── Coverage reports ────────────────────────────
 coverage
 
-# API keys and secrets
+# ─── API keys and secrets ────────────────────────
 .env
+.env.local
+.env.*.local
 
+# ─── Configuración de formateadores ──────────────
 .prettierrc
+.prettier*
+.eslintcache
 
-# dependency directory
+# ─── Dependency directory ────────────────────────
 node_modules
 
-# OS metadata
+# ─── OS metadata ─────────────────────────────────
 .DS_Store
 Thumbs.db
 
-# ignore built ts files
+# ─── Ignore built ts files ───────────────────────
 **/dist/**
+build/
+out/
 
-# vscode
+# ─── VSCode ─────────────────────────────────────
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
-!.vscode/launch.json 
+!.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
-## local jistory for vscode
+## Local history for VSCode
 .history/
 
-## built vscode extensions
+## Built VSCode extensions
 *.vsix
+
+# ─── Logs ────────────────────────────────────────
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
