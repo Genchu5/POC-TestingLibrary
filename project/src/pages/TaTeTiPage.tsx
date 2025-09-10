@@ -6,15 +6,15 @@ import { useState } from "react";
 
 export default function TaTeTiPage() {
     
-    const [history, setHistory] = useState([Array(9).fill(null)]);
+    const [squares, setSquares] = useState([Array(9).fill(null)]);
     const [currentMove, setCurrentMove] = useState(0);
     const xIsNext = currentMove % 2 === 0;
-    const currentSquares = history[currentMove];
+    const currentSquares = squares[currentMove];
 
     function handlePlay(nextSquares: any) {
-        const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
-        setHistory(nextHistory);
-        setCurrentMove(nextHistory.length - 1);
+        const nextSquare = [...squares.slice(0, currentMove + 1), nextSquares];
+        setSquares(nextSquare);
+        setCurrentMove(nextSquare.length - 1);
     }
 
     return (

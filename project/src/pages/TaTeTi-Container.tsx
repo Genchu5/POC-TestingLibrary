@@ -1,14 +1,15 @@
-import { useState , useEffect } from "react";
 import "./TaTeTi-Container.css"
 import {Square} from "./TaTeTi-Square"
 
+
+type PlayFunction = (nextSquares: (string | undefined)[]) => void;
 interface gridProps{
   xIsNext : boolean 
-  squares : any;
-  onPlay : any
+  squares: (string | undefined)[];
+  onPlay : PlayFunction
 }
 
-function calculateWinner(squares:React.ReactNode[]) {
+export function calculateWinner(squares:React.ReactNode[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -56,11 +57,12 @@ export default function TaTeTiContainer({ xIsNext, squares, onPlay }: gridProps)
 
   return (
     <div className="container">
-      <div className={statusStyle}>{status}</div>
+      <div data-testid="status" className={statusStyle}>{status}</div>
       <div className="grid">
-        {squares.map((value:string|null, index:number) => (
+        {squares.map((value:string|undefined, index:number) => (
           <Square
             key={index}
+            index = {index}
             value={value}
             onSquareClick={() => handleClick(index)}
           />
