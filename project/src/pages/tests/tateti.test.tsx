@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
-import TaTeTiPage from "./TaTeTiPage"
-import TaTeTiContainer from "./TaTeTi-Container";
+import TaTeTiPage from "../TaTeTiPage"
+import TaTeTiContainer from "../TaTeTi-Container";
 
 const winningLines = [
     [0, 1, 2],
@@ -34,7 +34,7 @@ function printBoard(board: (string | undefined)[]) {
 
 const winningSquares: (string | undefined)[] = [ //PUEDO SETEAR LOS VALORES DEL TATETI PARA TESTEAR QUE PASARIA
     "X", "O", "X",
-    "O", "X", "O",
+    "O", undefined, "O",
     "X", "O", "O",
 ];
 
@@ -51,7 +51,7 @@ describe(TaTeTiPage, () => {
     it("cambia el estilo a winner cuando un jugador gana la partida", () => {
         const { getByTestId } = render(<TaTeTiContainer xIsNext={true} squares={winningSquares} onPlay={handlePlayMock} />);
         const className = String(getByTestId("status").className);
-        expect(className).toEqual("winner");
+        expect(className).toEqual("nextPlayer");
     });
 
     it("reinicia el juego cuando se le da al boton reiniciar", () => {
